@@ -1,0 +1,14 @@
+homepage: "https://github.com/ronmamo/reflections"
+language: jvm
+main_repo: "https://github.com/ronmamo/reflections"
+fuzzing_engines:
+  - libfuzzer
+sanitizers:
+  - address
+primary_contact:
+vendor_ccs:
+  - "wagner@code-intelligence.com"
+  - "yakdan@code-intelligence.com"
+  - "glendowne@code-intelligence.com"
+  - "patrice.salathe@code-intelligence.com"
+  - "hlin@code-intelligence.com"
