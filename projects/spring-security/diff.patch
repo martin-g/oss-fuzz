@@ -78,18 +78,18 @@ index 3e915ef..1b4d55b 100644
  
  dependencies {
 diff --git a/dependencies/spring-security-dependencies.gradle b/dependencies/spring-security-dependencies.gradle
-index fb306f6..b27cd44 100644
+index cdfbd67..064e771 100644
 --- a/dependencies/spring-security-dependencies.gradle
 +++ b/dependencies/spring-security-dependencies.gradle
-@@ -6,6 +6,8 @@ javaPlatform {
- 	allowDependencies()
+@@ -2,6 +2,8 @@ plugins {
+ 	id 'java-platform'
  }
  
 +apply plugin: "com.github.johnrengelman.shadow"
 +
- dependencies {
- 	api platform("org.springframework:spring-framework-bom:$springFrameworkVersion")
- 	api platform("io.projectreactor:reactor-bom:$reactorVersion")
+ javaPlatform {
+ 	allowDependencies()
+ }
 diff --git a/ldap/spring-security-ldap.gradle b/ldap/spring-security-ldap.gradle
 index c4f6c08..39023ed 100644
 --- a/ldap/spring-security-ldap.gradle

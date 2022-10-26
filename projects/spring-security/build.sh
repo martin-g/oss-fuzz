@@ -23,6 +23,8 @@ CURRENT_VERSION=$(sed -nr "s/^version=(.*)/\1/p" gradle.properties)
 
 GRADLE_ARGS="-x test -x javadoc"
 
+git apply $SRC/diff.patch -v
+
 ./gradlew shadowJar $GRADLE_ARGS -b ldap/spring-security-ldap.gradle
 ./gradlew shadowJar $GRADLE_ARGS -b config/spring-security-config.gradle
 ./gradlew shadowJar $GRADLE_ARGS -b core/spring-security-core.gradle
@@ -60,13 +62,13 @@ for fuzzer in $(find $SRC -name '*Fuzzer.java'); do
   echo "#!/bin/bash
 # LLVMFuzzerTestOneInput for fuzzer detection.
 this_dir=\$(dirname \"\$0\")
-JAVA_HOME=\"\$this_dir/open-jdk-17/\" \
-LD_LIBRARY_PATH=\"\$this_dir/open-jdk-17/lib/server\":\$this_dir \
-if [[ \"$@\" =~ (^| )-runs=[0-9]+($| ) ]]; then
+if [[ \"\$@\" =~ (^| )-runs=[0-9]+($| ) ]]; then
   mem_settings='-Xmx1900m:-Xss900k'
 else
   mem_settings='-Xmx2048m:-Xss1024k'
 fi
+JAVA_HOME=\"\$this_dir/open-jdk-17/\" \
+LD_LIBRARY_PATH=\"\$this_dir/open-jdk-17/lib/server\":\$this_dir \
 \$this_dir/jazzer_driver --agent_path=\$this_dir/jazzer_agent_deploy.jar \
 --instrumentation_excludes=com.unboundid.ldap.**:org.springframework.ldap.** \
 --cp=$RUNTIME_CLASSPATH \
