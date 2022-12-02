@@ -1,4 +1,4 @@
-// Copyright 2021 Google LLC
+// Copyright 2022 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,12 +14,16 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+package com.example;
+
 import com.code_intelligence.jazzer.api.FuzzedDataProvider;
+import com.code_intelligence.jazzer.junit.FuzzTest;
 
 import org.jsoup.Jsoup;
 
-public class HtmlFuzzer {
-  public static void fuzzerTestOneInput(FuzzedDataProvider data) {
-    Jsoup.parse(data.consumeRemainingAsString());
-  }
+class HtmlFuzzer {
+    @FuzzTest
+    void myFuzzTest(FuzzedDataProvider data) {
+        Jsoup.parse(data.consumeRemainingAsString());
+    }
 }
