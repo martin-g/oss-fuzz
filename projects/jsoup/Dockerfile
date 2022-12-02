@@ -31,8 +31,10 @@ RUN git clone --depth 1 https://github.com/dvyukov/go-fuzz-corpus && \
     zip -j $SRC/XmlFuzzer_seed_corpus.zip go-fuzz-corpus/xml/corpus/* && \
     rm -rf go-fuzz-corpus
 
-RUN git clone --depth 1 https://github.com/jhy/jsoup/
+COPY project-parent $SRC/project-parent/
+
+RUN git clone --depth 1 https://github.com/jhy/jsoup/ $SRC/project-parent/jsoup
 
 COPY build.sh $SRC/
-COPY HtmlFuzzer.java XmlFuzzer.java $SRC/
-WORKDIR $SRC/jsoup
+
+WORKDIR $SRC/
