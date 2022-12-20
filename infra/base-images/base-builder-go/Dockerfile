@@ -19,6 +19,8 @@ FROM gcr.io/oss-fuzz-base/base-builder
 # Set up Golang environment variables (copied from /root/.bash_profile).
 ENV GOPATH /root/go
 
+ENV GOFUZZ_VERSION 95a800eb03ca08ca6ed3e8590160e2e008ba88ab
+
 # /root/.go/bin is for the standard Go binaries (i.e. go, gofmt, etc).
 # $GOPATH/bin is for the binaries from the dependencies installed via "go get".
 ENV PATH $PATH:/root/.go/bin:$GOPATH/bin

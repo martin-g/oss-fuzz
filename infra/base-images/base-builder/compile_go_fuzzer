@@ -59,6 +59,8 @@ if [[ $SANITIZER = *coverage* ]]; then
   fi
   go test -run Test${function}Corpus -v $tags -coverpkg $fuzzed_repo/...$pkgaddcov -c -o $OUT/$fuzzer $path
 else
+  sanitize_go $path $tags
+
   # Compile and instrument all Go files relevant to this fuzz target.
   echo "Running go-fuzz $tags -func $function -o $fuzzer.a $path"
   go-fuzz $tags -func $function -o $fuzzer.a $path
