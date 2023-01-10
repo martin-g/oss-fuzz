@@ -15,7 +15,7 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder-go
-RUN git clone --depth 1 https://github.com/ipfs/go-datastore
+RUN git clone --depth 1 https://github.com/kyakdan/go-datastore
 
 COPY build.sh $SRC/
 WORKDIR $SRC/go-datastore

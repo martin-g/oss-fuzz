@@ -16,6 +16,7 @@
 
 FROM gcr.io/oss-fuzz-base/base-builder-go
 RUN git clone --depth 1 https://github.com/distribution/distribution
-RUN git clone --depth 1 https://github.com/cncf/cncf-fuzzing
+RUN git clone https://github.com/kyakdan/cncf-fuzzing
+RUN cd cncf-fuzzing && git checkout d95c7a0c63fcd2f9211611486893ac455f59792a
 COPY build.sh $SRC/
 WORKDIR $SRC/distribution
