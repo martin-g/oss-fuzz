@@ -21,11 +21,10 @@ RUN curl -L https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.12-bin.tar.gz
     tar -zxvf ant.tar.gz -C $SRC/ant --strip-components=1 && \
     rm -rf ant.tar.gz
 
-RUN apt update && apt install -y default-jdk
-
 ENV ANT_HOME=$SRC/ant
 ENV ANT $SRC/ant/bin/ant
 
+RUN apt update && apt install -y openjdk-17-jdk
 RUN git clone --depth 1 https://github.com/apache/tomcat
 
 COPY build.sh $SRC/
