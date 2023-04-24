@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/project-parent/cron-utils-2/cron-utils.iml" filepath="$PROJECT_DIR$/project-parent/cron-utils-2/cron-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cron-utils-2.iml" filepath="$PROJECT_DIR$/.idea/cron-utils-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-parent/fuzz-targets/fuzz-targets.iml" filepath="$PROJECT_DIR$/project-parent/fuzz-targets/fuzz-targets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project-parent/project-parent.iml" filepath="$PROJECT_DIR$/project-parent/project-parent.iml" />
+    </modules>
+  </component>
+</project>

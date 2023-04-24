@@ -1,0 +1,9 @@
+homepage: "https://github.com/jmrozanec/cron-utils"
+language: jvm
+fuzzing_engines:
+  - libfuzzer
+main_repo: "https://github.com/jmrozanec/cron-utils"
+sanitizers:
+  - address
+vendor_ccs:
+  - "bug-disclosure@code-intelligence.com"
